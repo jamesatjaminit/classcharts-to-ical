@@ -14,7 +14,7 @@ const app = new Hono();
 
 app.get('/', async (c) => {
 	const url = new URL(c.req.url);
-	const currentUrl = `${url.protocol}//${url.hostname}${url.port !== "80" && url.port !== "443" ? `:${url.port}` : ""}`;
+	const currentUrl = `${url.protocol}//${url.hostname}${url.port.length > 0 && url.port !== "80" && url.port !== "443" ? `:${url.port}` : ""}`;
 	const banner = await Deno.readTextFile('banner.txt');
 	return c.text(outdent`
 	${banner}
