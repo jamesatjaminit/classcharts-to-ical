@@ -145,7 +145,7 @@ app.get('/v2/homework/:code/:dob/*', async (c) => {
 		}
 		calendar.createEvent({
 			start: dayjs(homework.due_date).toDate(),
-			summary: `Homework: ${homework.title}`,
+			summary: homework.title,
 			description: outdent`
 			Subject: ${homework.subject}
 			Teacher: ${homework.teacher}
