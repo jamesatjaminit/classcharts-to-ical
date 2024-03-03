@@ -21,8 +21,8 @@ app.get('/', async (c) => {
 
 
 	--- Endpoints ---
-	- Timetable2ICal: ${currentUrl}/v2/timetable/classchartsCode/dateOfBirth
-	- Homework2ICal: ${currentUrl}/v2/homework/classchartsCode/dateOfBirth
+	- Timetable2ICal: ${currentUrl}/v2/timetable/classchartsCode/dateOfBirth/calendar.ics
+	- Homework2ICal: ${currentUrl}/v2/homework/classchartsCode/dateOfBirth/calendar.ics
 
 	--- Notes ---
 	Make sure to replace the classchartsCode and dateOfBirth with your own details.

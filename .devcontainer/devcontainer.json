@@ -15,7 +15,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "deno cache deps.ts"
+	"postStartCommand": "deno cache deps.ts"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
