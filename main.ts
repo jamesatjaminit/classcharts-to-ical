@@ -128,8 +128,8 @@ app.get('/v2/homework/:code/:dob/*', async (c) => {
 	}
 
 	const homeworks = (await classchartsClient.getHomeworks({
-		from: dayjs().subtract(7, "day").format("YYYY-MM-DD"),
-		to: dayjs().add(32, "day").format("YYYY-MM-DD"),
+		from: dayjs().subtract(32, "day").format("YYYY-MM-DD"),
+		to: dayjs().add(366, "day").format("YYYY-MM-DD"),
 		displayDate: "due_date"
 	})).data;
 
