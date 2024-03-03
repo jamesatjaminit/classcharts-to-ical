@@ -94,7 +94,9 @@ app.get('/v2/timetable/:code/:dob/*', async (c) => {
 					summary: `${lesson.lesson_name} - ${lesson.room_name}`,
 					description: outdent`
 					Teacher Name: ${lesson.teacher_name}
-					Subject: ${lesson.subject_name}`
+					Subject: ${lesson.subject_name}
+					Requested At: ${dayjs().toString()}
+					`
 				});
 			}
 		} catch {
@@ -151,8 +153,8 @@ app.get('/v2/homework/:code/:dob/*', async (c) => {
 			Teacher: ${homework.teacher}
 			Issue Date: ${dayjs(homework.issue_date).toString()}
 			Status: ${status}
+			Requested At: ${dayjs().toString()}
 			Description: 
-
 			${homework.description.replace(/<[^>]*>?/gm, '').trim()}
 			`,
 			allDay: true
