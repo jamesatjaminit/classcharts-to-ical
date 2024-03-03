@@ -19,7 +19,7 @@ app.get('/', async (c) => {
 	return c.text(outdent`
 	${banner}
 
-	
+
 	--- Endpoints ---
 	- Timetable2ICal: ${currentUrl}/v2/timetable/classchartsCode/dateOfBirth
 	- Homework2ICal: ${currentUrl}/v2/homework/classchartsCode/dateOfBirth
@@ -29,7 +29,7 @@ app.get('/', async (c) => {
 	dateOfBirth should be in format: DD-MM-YYYY
 	
 	Timetable2Ical returns lessons a week prior, and 32 days after the current date (${dayjs().format("DD/MM/YYYY")}).
-	Homework2ICal returns homework 32 days prior and a year in advance.
+	Homework2ICal returns homework 32 days prior and a year in advance of the current date (${dayjs().format("DD/MM/YYYY")}).
 	These limits are due to having to request timetable days individually, whereas homework can be requested in a single request.
 	Feel free to modify the code and host your own instance to alter these limits.
 	
@@ -38,10 +38,10 @@ app.get('/', async (c) => {
 
 	--- Privacy ---
 	The only data which is collected is version of your classcharts code and date of birth (both hashed via SHA-512) for the purpose of rate limiting. 
-	If you are worried about privacy, it's super easy to host your own instance, see the link below.
+	If you are worried about privacy, it's super easy to host your own instance, see the source link below.
 
 	--- Source ---
-	The source code is avaliable to host yourself at: https://github.com/jamesatjaminit/classcharts-ical
+	The source code is avaliable to host yourself at: https://github.com/jamesatjaminit/classcharts-to-ical
 	And can easily be deployed to Deno Deploy without any configuration.
 	
 	--- Contact ---
