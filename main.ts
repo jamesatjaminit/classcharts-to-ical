@@ -34,7 +34,7 @@ app.get('/', async (c) => {
 	Feel free to modify the code and host your own instance to alter these limits.
 	
 	--- Rate Limits ---
-	One request per endpoint, per 30 seconds. This may change without notice.
+	10 requests per endpoint, per hour.
 
 	--- Privacy ---
 	The only data which is collected is version of your classcharts code and date of birth (both hashed via SHA-512) for the purpose of rate limiting. 
@@ -66,8 +66,8 @@ app.get('/v2/timetable/:code/:dob/*', async (c) => {
 	if (dateOfBirthRegex.test(dob) === false) {
 		return c.text('Invalid date of birth. Should be in format DD-MM-YYYY', 400);
 	}
-	if ((await checkAndAddRateLimit("timetable", code + "/" + dob, 30 * 1000)) === false) {
-		return c.text("Rate limited. Only 1 request allowed every 30 seconds.", {
+	if ((await checkAndAddRateLimit("timetable", code + "/" + dob, 10, 60 * 60 * 1000)) === false) {
+		return c.text("Rate limited. Check the home page for details.", {
 			status: 429
 		});
 	}
@@ -115,8 +115,8 @@ app.get('/v2/homework/:code/:dob/*', async (c) => {
 	if (dateOfBirthRegex.test(dob) === false) {
 		return c.text('Invalid date of birth. Should be in format DD-MM-YYYY', 400);
 	}
-	if ((await checkAndAddRateLimit("homework", code + "/" + dob, 30 * 1000)) === false) {
-		return c.text("Rate limited. Only 1 request allowed every 30 seconds.", {
+	if ((await checkAndAddRateLimit("homework", code + "/" + dob, 10, 60 * 60 * 1000)) === false) {
+		return c.text("Rate limited. Check the home page for details.", {
 			status: 429
 		});
 	}
@@ -167,7 +167,3 @@ app.get('/v2/homework/:code/:dob/*', async (c) => {
 });
 
 Deno.serve(app.fetch);
-
-function font(arg0: string): any {
-	throw new Error("Function not implemented.");
-}
