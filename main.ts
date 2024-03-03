@@ -95,7 +95,7 @@ app.get('/v2/timetable/:code/:dob/*', async (c) => {
 					description: outdent`
 					Teacher Name: ${lesson.teacher_name}
 					Subject: ${lesson.subject_name}
-					Requested At: ${dayjs().toString()}
+					Synced At: ${dayjs().toString()}
 					`
 				});
 			}
@@ -153,7 +153,7 @@ app.get('/v2/homework/:code/:dob/*', async (c) => {
 			Teacher: ${homework.teacher}
 			Issue Date: ${dayjs(homework.issue_date).toString()}
 			Status: ${status}
-			Requested At: ${dayjs().toString()}
+			Synced At: ${dayjs().toString()}
 			Description: 
 			${homework.description.replace(/<[^>]*>?/gm, '').trim()}
 			`,
