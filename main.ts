@@ -37,7 +37,7 @@ app.get('/', async (c) => {
 	10 requests per endpoint, per hour.
 
 	--- Privacy ---
-	The only data which is collected is version of your classcharts code and date of birth (both hashed via SHA-512) for the purpose of rate limiting. 
+	The only data which is collected your classcharts code and date of birth (both hashed via SHA-512) for the purpose of rate limiting. 
 	If you are worried about privacy, it's super easy to host your own instance, see the source link below.
 
 	--- Source ---
