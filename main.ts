@@ -34,7 +34,7 @@ app.get('/', async (c) => {
 	Feel free to modify the code and host your own instance to alter these limits.
 	
 	--- Rate Limits ---
-	10 requests per endpoint, per hour.
+	10 requests per endpoint, per hour. Limited by a hash of your ClassCharts code & date of birth.
 
 	--- Privacy ---
 	The only data which is collected your classcharts code and date of birth (both hashed via SHA-512) for the purpose of rate limiting. 
