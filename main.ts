@@ -1,4 +1,3 @@
-import { figlet } from "./deps.ts";
 import { Hono, ICalCalendarMethod, StudentClient, dayjs, ical, outdent } from "./deps.ts";
 import { checkAndAddRateLimit } from './kv.ts';
 
@@ -16,8 +15,11 @@ const app = new Hono();
 app.get('/', async (c) => {
 	const url = new URL(c.req.url);
 	const currentUrl = `${url.protocol}//${url.hostname}${url.port !== "80" && url.port !== "443" ? `:${url.port}` : ""}`;
+	const banner = await Deno.readTextFile('banner.txt');
 	return c.text(outdent`
-	${await figlet("ClassCharts To ICal")}
+	${banner}
+
+	
 	--- Endpoints ---
 	- Timetable2ICal: ${currentUrl}/v2/timetable/classchartsCode/dateOfBirth
 	- Homework2ICal: ${currentUrl}/v2/homework/classchartsCode/dateOfBirth
@@ -165,3 +167,7 @@ app.get('/v2/homework/:code/:dob/*', async (c) => {
 });
 
 Deno.serve(app.fetch);
+
+function font(arg0: string): any {
+	throw new Error("Function not implemented.");
+}

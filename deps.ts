@@ -8,5 +8,3 @@ import dayjs from 'npm:dayjs@1.11.10';
 export { dayjs };
 export { encodeHex } from "https://deno.land/std@0.218.2/encoding/hex.ts";
 export { outdent } from "https://deno.land/x/outdent@v0.8.0/mod.ts";
-import figlet from 'https://deno.land/x/deno_figlet@1.0.0/mod.ts';
-export { figlet };
