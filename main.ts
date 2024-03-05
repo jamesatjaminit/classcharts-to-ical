@@ -154,6 +154,7 @@ app.get('/v2/homework/:code/:dob/*', async (c) => {
 			Issue Date: ${dayjs(homework.issue_date).toString()}
 			Status: ${status}
 			Synced At: ${dayjs().toString()}
+			More Info: https://www.classcharts.com/mobile/student#${classchartsClient.studentId},homework,${homework.id}
 			Description: 
 			${homework.description.replace(/<[^>]*>?/gm, '').trim()}
 			`,
