@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "@denosaurs/argontwo": "jsr:@denosaurs/argontwo@^0.2.0",
+    "@hono/hono": "jsr:@hono/hono@^4.4.0",
+    "@std/encoding": "jsr:@std/encoding@^0.224.3"
+  }
+}
